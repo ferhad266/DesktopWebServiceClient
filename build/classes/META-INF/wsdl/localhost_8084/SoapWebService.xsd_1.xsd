@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webservice.hotel/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice.hotel/">
+
+<xs:element name="Worker" type="tns:respWorker" />
+
+<xs:element name="addWorker" type="tns:addWorker" />
+
+<xs:element name="addWorkerResponse" type="tns:addWorkerResponse" />
+
+<xs:element name="deleteWorker" type="tns:deleteWorker" />
+
+<xs:element name="deleteWorkerResponse" type="tns:deleteWorkerResponse" />
+
+<xs:element name="getWorkerById" type="tns:getWorkerById" />
+
+<xs:element name="getWorkerByIdResponse" type="tns:getWorkerByIdResponse" />
+
+<xs:element name="getWorkerList" type="tns:getWorkerList" />
+
+<xs:element name="getWorkerListResponse" type="tns:getWorkerListResponse" />
+
+<xs:element name="loginUser" type="tns:loginUser" />
+
+<xs:element name="loginUserResponse" type="tns:loginUserResponse" />
+
+<xs:element name="logout" type="tns:logout" />
+
+<xs:element name="logoutResponse" type="tns:logoutResponse" />
+
+<xs:element name="reqLogin" type="tns:reqLogin" />
+
+<xs:element name="reqLogout" type="tns:reqLogout" />
+
+<xs:element name="reqToken" type="tns:reqToken" />
+
+<xs:element name="reqWorker" type="tns:reqWorker" />
+
+<xs:element name="reqWorkerId" type="tns:reqWorkerId" />
+
+<xs:element name="respLogin" type="tns:respLogin" />
+
+<xs:element name="respStatus" type="tns:respStatus" />
+
+<xs:element name="respWorkerList" type="tns:respWorkerList" />
+
+<xs:element name="test" type="tns:test" />
+
+<xs:element name="testResponse" type="tns:testResponse" />
+
+<xs:element name="updateWorker" type="tns:updateWorker" />
+
+<xs:element name="updateWorkerResponse" type="tns:updateWorkerResponse" />
+
+<xs:complexType name="test">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="testResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWorkerList">
+<xs:sequence>
+<xs:element name="arg0" type="tns:reqToken" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reqToken">
+<xs:sequence>
+<xs:element name="token" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWorkerListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respWorkerList" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respWorkerList">
+<xs:sequence>
+<xs:element name="workerList" type="tns:respWorker" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="status" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respWorker">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0" />
+<xs:element name="ad" type="xs:string" minOccurs="0" />
+<xs:element name="soyad" type="xs:string" minOccurs="0" />
+<xs:element name="dob" type="xs:string" minOccurs="0" />
+<xs:element name="fatherName" type="xs:string" minOccurs="0" />
+<xs:element name="status" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respStatus">
+<xs:sequence>
+<xs:element name="statusCode" type="xs:int" minOccurs="0" />
+<xs:element name="statusMessage" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addWorker">
+<xs:sequence>
+<xs:element name="reqWorker" type="tns:reqWorker" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reqWorker">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0" />
+<xs:element name="surname" type="xs:string" minOccurs="0" />
+<xs:element name="fatherName" type="xs:string" minOccurs="0" />
+<xs:element name="dob" type="xs:dateTime" minOccurs="0" />
+<xs:element name="phone" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="workerId" type="xs:long" minOccurs="0" />
+<xs:element name="token" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addWorkerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateWorker">
+<xs:sequence>
+<xs:element name="reqWorker" type="tns:reqWorker" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateWorkerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWorkerById">
+<xs:sequence>
+<xs:element name="workerId" type="tns:reqWorkerId" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reqWorkerId">
+<xs:sequence>
+<xs:element name="workerId" type="xs:long" minOccurs="0" />
+<xs:element name="token" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWorkerByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respWorker" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteWorker">
+<xs:sequence>
+<xs:element name="workerId" type="xs:long" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteWorkerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logout">
+<xs:sequence>
+<xs:element name="reqLogin" type="tns:reqLogout" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reqLogout">
+<xs:sequence>
+<xs:element name="token" type="xs:string" minOccurs="0" />
+<xs:element name="status" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logoutResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginUser">
+<xs:sequence>
+<xs:element name="reqLogin" type="tns:reqLogin" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reqLogin">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:respLogin" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respLogin">
+<xs:sequence>
+<xs:element name="token" type="xs:string" minOccurs="0" />
+<xs:element name="fullname" type="xs:string" minOccurs="0" />
+<xs:element name="loginDate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="status" type="tns:respStatus" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
